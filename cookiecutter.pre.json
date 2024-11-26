@@ -1,0 +1,37 @@
+{
+    "adapter": ["snowflake", "bigquery", "postgres"],
+
+    "host": null,
+    "port": null,
+    "user": null,
+    "password": null,
+    "schema": null,
+    "database_name": null,
+
+    "project_id": null,
+    "dataset": null,
+    "location": null,
+
+    "account": null,
+    "role": null,
+    "warehouse": null,
+
+    "threads": 1,
+
+    "__conditions__": {
+        "host": "{{cookiecutter.adapter in ['postgres']}}",
+        "port": "{{cookiecutter.adapter in ['postgres']}}",
+        "user": "{{cookiecutter.adapter in ['postgres', 'snowflake']}}",
+        "password": "{{cookiecutter.adapter in ['postgres', 'snowflake']}}",
+        "schema": "{{cookiecutter.adapter in ['snowflake', 'postgres']}}",
+        "database_name": "{{cookiecutter.adapter in ['snowflake', 'postgres']}}",
+        
+        "project_id": "{{cookiecutter.adapter in ['bigquery']}}",
+        "dataset": "{{cookiecutter.adapter in ['bigquery']}}",
+        "location": "{{cookiecutter.adapter in ['bigquery']}}",
+
+        "account": "{{cookiecutter.adapter in ['snowflake']}}",
+        "role": "{{cookiecutter.adapter in ['snowflake']}}",
+        "warehouse": "{{cookiecutter.adapter in ['snowflake']}}"
+    }
+}

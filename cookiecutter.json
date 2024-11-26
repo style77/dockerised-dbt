@@ -1,0 +1,6 @@
+{
+    "project_name": "my_project",
+    "dbt_project_name": "dbt",
+    "profile_target": "dev",
+    "_extensions": ["extensions.StemKeysExtension"]
+}
