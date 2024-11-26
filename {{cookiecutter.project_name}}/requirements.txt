@@ -1,0 +1,8 @@
+# Astro Runtime includes the following pre-installed providers packages: https://docs.astronomer.io/astro/runtime-image-architecture#provider-packages
+{% if cookiecutter.adapter == "postgres" %}
+dbt-postgres
+{% elif cookiecutter.adapter == "snowflake" %}
+dbt-snowflake
+{% elif cookiecutter.adapter == "bigquery" %}
+dbt-bigquery
+{% endif %}

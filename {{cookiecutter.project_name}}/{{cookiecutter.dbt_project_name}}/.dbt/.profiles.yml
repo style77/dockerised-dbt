@@ -1,0 +1,31 @@
+{{ cookiecutter.dbt_project_name }}:
+  outputs:
+    {{ cookiecutter.profile_target }}:
+      {% if cookiecutter.adapter == "postgres" %}
+      type: postgres
+      dbname: {{ cookiecutter.database_name }}
+      host: {{ cookiecutter.host }}
+      port: {{ cookiecutter.port }}
+      user: {{ cookiecutter.user }}
+      pass: {{ cookiecutter.password }}
+      schema: {{ cookiecutter.schema }}
+      threads: {{ cookiecutter.threads }}
+      {% elif cookiecutter.adapter == "bigquery" %}
+      type: bigquery
+      project: {{ cookiecutter.project_id }}
+      dataset: {{ cookiecutter.dataset }}
+      location: {{ cookiecutter.location }}
+      method: oauth
+      threads: {{ cookiecutter.threads }}
+      {% elif cookiecutter.adapter == "snowflake" %}
+      type: snowflake
+      account: {{ cookiecutter.account }}
+      user: {{ cookiecutter.user }}
+      password: {{ cookiecutter.password }}
+      role: {{ cookiecutter.role }}
+      warehouse: {{ cookiecutter.warehouse }}
+      database: {{ cookiecutter.database_name }}
+      schema: {{ cookiecutter.schema }}
+      threads: {{ cookiecutter.threads }}
+      {% endif %}
+  target: {{ cookiecutter.profile_target }}
